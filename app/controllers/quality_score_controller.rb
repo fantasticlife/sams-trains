@@ -15,10 +15,14 @@ class QualityScoreController < ApplicationController
         ORDER by qs.score
       "
     )
+      
+    @page_title = 'Quality scores'
   end
   
   def show
     quality_score = params[:quality_score]
     @quality_score = QualityScore.find( quality_score )
+      
+    @page_title = "Quality scores - #{@quality_score.score}"
   end
 end

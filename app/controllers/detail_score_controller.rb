@@ -15,10 +15,14 @@ class DetailScoreController < ApplicationController
         ORDER by ds.score
       "
     )
+      
+    @page_title = 'Detail scores'
   end
   
   def show
     detail_score = params[:detail_score]
     @detail_score = DetailScore.find( detail_score )
+      
+    @page_title = "Detail scores - #{@detail_score.score}"
   end
 end

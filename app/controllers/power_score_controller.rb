@@ -15,10 +15,14 @@ class PowerScoreController < ApplicationController
         ORDER by hc.number_of_coaches
       "
     )
+      
+    @page_title = 'Power scores'
   end
   
   def show
     power_score = params[:power_score]
     @power_score = HaulageCapability.find( power_score )
+      
+    @page_title = "Power scores - #{@power_score.number_of_coaches} coaches"
   end
 end

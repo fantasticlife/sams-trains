@@ -15,10 +15,14 @@ class MechanismScoreController < ApplicationController
         ORDER by ms.score
       "
     )
+      
+    @page_title = 'Mechanism scores'
   end
   
   def show
     mechanism_score = params[:mechanism_score]
     @mechanism_score = MechanismScore.find( mechanism_score )
+      
+    @page_title = "Mechanism scores - #{@mechanism_score.score}"
   end
 end

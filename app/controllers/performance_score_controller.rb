@@ -15,10 +15,14 @@ class PerformanceScoreController < ApplicationController
         ORDER by ps.score
       "
     )
+      
+    @page_title = 'Performance scores'
   end
   
   def show
     performance_score = params[:performance_score]
     @performance_score = PerformanceScore.find( performance_score )
+      
+    @page_title = "Performance scores - #{@performance_score.score}"
   end
 end

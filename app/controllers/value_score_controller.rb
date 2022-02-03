@@ -15,10 +15,14 @@ class ValueScoreController < ApplicationController
         ORDER by vs.score
       "
     )
+      
+    @page_title = 'Value scores'
   end
   
   def show
     value_score = params[:value_score]
     @value_score = ValueScore.find( value_score )
+      
+    @page_title = "Value scores - #{@value_score.score}"
   end
 end

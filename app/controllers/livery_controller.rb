@@ -2,6 +2,8 @@ class LiveryController < ApplicationController
   
   def index
     @liveries = Livery.all.order( 'name' )
+      
+    @page_title = 'Liveries'
   end
   
   def show
@@ -18,5 +20,7 @@ class LiveryController < ApplicationController
         WHERE l.id = #{livery}
       "
     ).first
+      
+    @page_title = "Liveries - #{@livery.name}"
   end
 end
