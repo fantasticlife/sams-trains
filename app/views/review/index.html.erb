@@ -1,5 +1,6 @@
 <%= content_tag( 'h1', 'Reviews' ) %>
 <%= render :partial => 'review/view_switch' %>
+<%= content_tag( 'p', link_to( 'RSS', review_list_url( :format => 'rss' ) ) ) %>
 <ol>
 	<%= render :partial => 'review/review', :collection => @reviews %>
 </ol>
