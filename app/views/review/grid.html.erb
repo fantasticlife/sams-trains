@@ -1,6 +1,7 @@
 <%= content_tag( 'h1', 'Reviews' ) %>
 
 <%= render :partial => 'view_switch' %>
+<%= content_tag( 'p', link_to( 'CSV', review_grid_url( :format => 'csv' ) ) ) %>
 
 <table>
 	<thead>
