@@ -51,7 +51,8 @@ class ReviewController < ApplicationController
     
     
     @reviews = Review
-      .joins( :model, :detail_score, :performance_score, :mechanism_score, :quality_score, :value_score, :haulage_capability ).joins( :manufacturer, :scale, :operator, :locomotive_class, :livery,  )
+      .joins( :model, :manufacturer, :scale, :operator, :locomotive_class, :livery,  )
+      .left_joins( :detail_score, :performance_score, :haulage_capability, :mechanism_score, :quality_score, :value_score )
       .select( 'reviews.*, models.id, scales.id as scale_id, scales.name as scale_name, manufacturers.id as manufacturer_id, manufacturers.name as manufacturer_name, operators.id as operator_id, operators.name as operator_name, locomotive_classes.id as locomotive_class_id, locomotive_classes.name as locomotive_class_name, liveries.id as livery_id, liveries.name as livery_name, detail_scores.id as detail_score_id, detail_scores.score as detail_score_score, performance_scores.id as performance_score_id, performance_scores.score as performance_score_score, mechanism_scores.id as mechanism_score_id, mechanism_scores.score as mechanism_score_score, quality_scores.id as quality_score_id, quality_scores.score as quality_score_score, value_scores.id as value_score_id, value_scores.score as value_score_score, haulage_capabilities.id as power_score_id, haulage_capabilities.number_of_coaches as power_score_score' )
       .order( order )
       
